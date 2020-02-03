@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="score"
+            type="com.applike.courtcounter.ScoreViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/teamA_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/team_a"
+            android:textColor="#616161"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/teamAScore_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:paddingBottom="24dp"
+            android:text="@{Integer.toString(score.scoreTeamA), default = 0}"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="56sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/teamA_label"
+            app:layout_constraintStart_toStartOf="@+id/teamA_label"
+            app:layout_constraintTop_toBottomOf="@+id/teamA_label" />
+
+        <Button
+            android:id="@+id/threePointA_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> score.addScore(3,'a')}"
+            android:text="@string/_3_points"
+            app:layout_constraintEnd_toEndOf="@+id/teamA_label"
+            app:layout_constraintStart_toStartOf="@+id/teamA_label"
+            app:layout_constraintTop_toBottomOf="@+id/teamAScore_textView" />
+
+        <Button
+            android:id="@+id/twoPointA_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> score.addScore(2,'a')}"
+            android:text="@string/_2_points"
+            app:layout_constraintEnd_toEndOf="@+id/teamA_label"
+            app:layout_constraintStart_toStartOf="@+id/teamA_label"
+            app:layout_constraintTop_toBottomOf="@+id/threePointA_button" />
+
+
+        <Button
+            android:id="@+id/freeThrowA_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> score.addScore(1,'a')}"
+            android:text="@string/free_throw"
+            app:layout_constraintEnd_toEndOf="@+id/teamA_label"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/teamA_label"
+            app:layout_constraintTop_toBottomOf="@+id/twoPointA_button" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toTopOf="@+id/reset_button"
+            app:layout_constraintEnd_toStartOf="@id/teamB_label"
+            app:layout_constraintStart_toEndOf="@+id/teamA_label"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <TextView
+            android:id="@+id/teamB_label"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/team_b"
+            android:textColor="#616161"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/teamBScore_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:gravity="center"
+            android:paddingBottom="24dp"
+            android:text="@{Integer.toString(score.scoreTeamB), default = 0}"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="56sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/teamB_label"
+            app:layout_constraintStart_toStartOf="@+id/teamB_label"
+            app:layout_constraintTop_toBottomOf="@+id/teamB_label" />
+
+        <Button
+            android:id="@+id/threePointB_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> score.addScore(3,'b')}"
+            android:text="@string/_3_points"
+            app:layout_constraintEnd_toEndOf="@+id/teamB_label"
+            app:layout_constraintStart_toStartOf="@+id/teamB_label"
+            app:layout_constraintTop_toBottomOf="@+id/teamBScore_textView" />
+
+        <Button
+            android:id="@+id/twoPointB_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> score.addScore(2,'b')}"
+            android:text="@string/_2_points"
+            app:layout_constraintEnd_toEndOf="@+id/teamB_label"
+            app:layout_constraintStart_toStartOf="@+id/teamB_label"
+            app:layout_constraintTop_toBottomOf="@+id/threePointB_button" />
+
+        <Button
+            android:id="@+id/freeThrowB_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> score.addScore(1,'b')}"
+            android:text="@string/free_throw"
+            app:layout_constraintEnd_toEndOf="@+id/teamB_label"
+            app:layout_constraintStart_toStartOf="@+id/teamB_label"
+            app:layout_constraintTop_toBottomOf="@+id/twoPointB_button" />
+
+
+        <Button
+            android:id="@+id/reset_button"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="180dp"
+            android:onClick="@{() -> score.resetScore()}"
+            android:text="@string/reset"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
